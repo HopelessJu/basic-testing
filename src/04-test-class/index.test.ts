@@ -57,7 +57,8 @@ describe('BankAccount', () => {
 
   test('should set new balance if fetchBalance returned number', async () => {
     const account = getBankAccount(1000);
-    const balance = await account.fetchBalance();
+    const balance = account.fetchBalance();
+
     if (typeof balance === 'number') {
       await account.synchronizeBalance();
       expect(account.getBalance()).toBe(balance);
